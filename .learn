@@ -1,0 +1,16 @@
+tags:
+  - readme
+  - node
+  - postgres
+languages:
+  - node
+  - javascript
+resources: 0
+track:
+  - web development
+topic:
+  - node
+unit:
+  - Building a Database-Backed Application
+lesson:
+  - Intro to PostgreSQL

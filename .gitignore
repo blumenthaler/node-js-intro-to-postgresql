@@ -1,0 +1,6 @@
+node_modules
+.tern-project
+.results.json
+.editorconfig
+.jshintrc
+*.swp
