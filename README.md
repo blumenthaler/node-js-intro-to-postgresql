@@ -7,14 +7,14 @@ In this lesson, we will introduce you to the PostgreSQL database.
 
 ## Objectives
 
-By the end of this lesson you will be able to:
-1. Explain the key differences between SQLite and PostgreSQL.
-2. Discuss with a client why they might want to use PostgreSQL over SQLite.
-3. Install PostgresSQL on your system.
-4. Use the command line and the psql interactive terminal to perform basic operations on your database.
+By the end of this lesson you will be able to:    
+1. Explain the key differences between SQLite and PostgreSQL.    
+2. Discuss with a client why they might want to use PostgreSQL over SQLite.    
+3. Install PostgresSQL on your system.    
+4. Use the command line and the psql interactive terminal to perform basic operations on your database.    
 
 ## What is PostgreSQL?
-
+ 
 PostgreSQL is a database. But it's not just any database: it is among the most widely used, highly regarded, and robust database solutions in existence, so we'll be getting to know a real powerhouse technology here, a technology that you will very likely run into again and again throughout your career.
 
 So it's powerful and well-known, but what kind of database is it? This is a good question. As technologists, we shouldn't just be impressed by the popularity of a technology. All technologies have specific charactersitics, specific strengths and weaknesses. To answer this question, we'll place PostgreSQL in the universe of database technologies, and then compare it to the database that we've most commonly been using: SQLite.
@@ -23,7 +23,9 @@ Currently, we have two main types of databases that we can use: Relational (SQL)
 
 Relational databases, which have been around since the 1970s, are very popular because they use models to define with great specificity the way data is related. This makes it possible to query data in complex ways to answer different kinds of questions. It also places useful limits on how data can be entered into the system, ensuring data consistency and integrity. By contrast, NoSQL databases such as MongoDB, remove some of the limits imposed by maintaining relational rules. These databases have also been around for a long time, but have only recently become popular because of the advantages in speed, scaling and flexiblity they can sometimes offer in the context of real-time live web applications. This is all you really need to know for now. If you want to dig a bit deeper, you can take a look at [this](https://www.digitalocean.com/community/tutorials/understanding-sql-and-nosql-databases-and-different-database-models) nice explanation written up by the people at DigitalOcean.
 
-So where does Postgres fit here? Well, Postgres is absolutely an example of a relational database. In fact, it is arguably the standard-bearer of this type of database because it is *the* relational database system that most fully implements the international standards for this kind of database. It is not necessarily the most widely used relational database -- that honor goes to MySQL -- but it is the most robust and standards-compliant. Because it is so compliant and because its functionality so fully developed, it is therefore a good database to recommend to our clients when what they need is a high level of data integrity and reliability.
+So where does Postgres fit here? Well, Postgres is absolutely an example of a relational database. In fact, it is arguably the standard-bearer of this type of database because, among all the prominent relational database systems out there, it is *the* one that most fully implements the international standards for this kind of database. It is not necessarily the most widely used relational database -- that honor goes to MySQL -- but it is the most robust and standards-compliant. Because it is so compliant and because its functionality so fully developed, it is therefore a good database to recommend to our clients when what they need is a high level of data integrity and reliability.
+
+## How Does PostgreSQL Compare to SQLite?
 
 That then is how we'd define PostgreSQL on the global level among the whole universe of database solutions. But how does it compare with the SQLite? Here the comparison is a bit more detailed. Both are relational databases, and both follow the SQL standard, and that makes designing data structures within them and querything them a similar sort of experience, but beyond that a number of significant differences exist.
 
