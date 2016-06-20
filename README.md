@@ -203,4 +203,4 @@ Now this kind of query is obviously pretty basic, but it should get us started. 
 
 ## Resources
 * PostgreSQL documentation: https://www.postgresql.org/docs/ 
-* * ["Understanding SQL And NoSQL Databases And Different Database Models"](https://www.digitalocean.com/community/tutorials/understanding-sql-and-nosql-databases-and-different-database-models)
+* ["Understanding SQL And NoSQL Databases And Different Database Models"](https://www.digitalocean.com/community/tutorials/understanding-sql-and-nosql-databases-and-different-database-models)
