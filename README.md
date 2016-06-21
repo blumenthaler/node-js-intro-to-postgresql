@@ -3,18 +3,18 @@ Intro to PostgreSQL
 
 ## Overview
 
-In this lesson, we will introduce you to the PostgreSQL database. 
+In this lesson, we will introduce you to the PostgreSQL database.
 
 ## Objectives
 
-By the end of this lesson you will be able to:    
-1. Explain the key differences between SQLite and PostgreSQL.    
-2. Discuss with a client why they might want to use PostgreSQL over SQLite.    
-3. Install PostgresSQL on your system.    
-4. Use the command line and the psql interactive terminal to perform basic operations on your database.    
+By the end of this lesson you will be able to:
+1. Explain the key differences between SQLite and PostgreSQL.
+2. Discuss with a client why they might want to use PostgreSQL over SQLite.
+3. Install PostgresSQL on your system.
+4. Use the command line and the psql interactive terminal to perform basic operations on your database.
 
 ## What is PostgreSQL?
- 
+
 PostgreSQL is a database. But it's not just any database: it is among the most widely used, highly regarded, and robust database solutions in existence, so we'll be getting to know a real powerhouse technology here, a technology that you will very likely run into again and again throughout your career.
 
 So it's powerful and well-known, but what kind of database is it? This is a good question. As technologists, we shouldn't just be impressed by the popularity of a technology. All technologies have specific charactersitics, specific strengths and weaknesses. To answer this question, we'll place PostgreSQL in the universe of database technologies, and then compare it to the database that we've most commonly been using: SQLite.
@@ -31,13 +31,13 @@ That then is how we'd define PostgreSQL on the global level among the whole univ
 
 Probably the most striking difference between them, is that SQLite is a file-based database. When you query SQLite, it manipulates and fetches data by making direct calls to a file holding the data. That file, essentially, *is* the SQLite database. Postgres works very differently: it fetches data through an interface of ports and sockets that connect to a database server that must be installed in the environment in which the application is running.
 
-The fact that SQLite is just a file makes it an insanely lightweight and fast solution. So SQLite is a great technology to use when what is needed is speed and portability, and when the application in question is relatively simple. When, however, an application is larger; when, in particular, multiple parties (or users) may need to access the database at the same time, then SQLite begins to show its limitations. Because the SQLite database is just a file there's now mechanism for maintaining multiple database users who may be accessing the database at the same time. In SQLite there's just one user and only one write process can take place at one time. For many large-scale applications, this limitation is simply prohibitive. In this scenario, many software engineers will turn to a full-fledged relational database like Postgres. 
+The fact that SQLite is just a file makes it an insanely lightweight and fast solution. So SQLite is a great technology to use when what is needed is speed and portability, and when the application in question is relatively simple. When, however, an application is larger; when, in particular, multiple parties (or users) may need to access the database at the same time, then SQLite begins to show its limitations. Because the SQLite database is just a file there's now mechanism for maintaining multiple database users who may be accessing the database at the same time. In SQLite there's just one user and only one write process can take place at one time. For many large-scale applications, this limitation is simply prohibitive. In this scenario, many software engineers will turn to a full-fledged relational database like Postgres.
 
 ## Installing PostgreSQL
- 
+
 Now that we have an idea about the characteristics of Postgres, let's get it installed. Yes it needs to be installed! Here, of course, we encounter one of the limitations of Postgres compared to SQLite. It's definitely a bit more of an involved process to get it going on our systems.  Nonetheless, we can do it!
 
-One of the reason that install Postgres can be complex is that it depends on your environment. Setup and configuration, in general, is often frustrating because of the idiosyncacies of each environment. But we'll go through some methods here that should be pretty full proof.
+One of the reason that installing Postgres can be complex is that it depends on your environment. Setup and configuration, in general, is often frustrating because of the idiosyncacies of each environment. But we'll go through some methods here that should be pretty full proof.
 
 Before we get started, though, we need to understand the overall process here since each of the installation procedures is aiming at the same goal. In order to complete our installation, we need to achieve the following:
 
@@ -45,20 +45,20 @@ Before we get started, though, we need to understand the overall process here si
 2. Ensure that the database server can run (automatically, in most cases).
 3. Create a user to match your default user account so that you can access the db directly from your own account.
 
-Note that the last step (#3), involves adding a new database user. Now you see more clearly perhaps what makes Postgres different than SQLite. We need to setup and manage different users in the database. When you install the database, unless something has gone wrong, you a base user with broad privileges is automatically created. This user is almost always called `postgres`. What we will do in Step #3 above is create an additional user with broad privileges that corresponds to your main user account on your operating system.
+Note that the last step (#3), involves adding a new database user. Now you see more clearly perhaps what makes Postgres different than SQLite. We need to set up and manage different users in the database. When you install the database, unless something has gone wrong, you a base user with broad privileges is automatically created. This user is almost always called `postgres`. What we will do in Step #3 above is create an additional user with broad privileges that corresponds to your main user account on your operating system.
 
 Okay, let's get started. There are instructions here for Ubuntu and Mac:
 
-**Step #1: Install the Postgres Database System:**    
+**Step #1: Install the Postgres Database System:**
 
-If you are using Ubuntu, this step will go a bit more smoothly than on Mac. On Ubuntu, all you need to do is use the packaage manager `apt-get` to install postgres, like so:
+If you are using Ubuntu, this step will go a bit more smoothly than on Mac. On Ubuntu, all you need to do is use the package manager `apt-get` to install postgres, like so:
 
 ```bash
 $ sudo apt-get update
 $ sudo apt-get install postgresql postgresql-contrib
 ```
 
-At this point, if you are doing an Ubuntu installation, you've basically completed steps #1 and #2. The database should be install and running as a background process that will start when your computer boots up. So, you can skip ahead to Step #3 below. 
+At this point, if you are doing an Ubuntu installation, you've basically completed steps #1 and #2. The database should be install and running as a background process that will start when your computer boots up. So, you can skip ahead to Step #3 below.
 
 If you are on a Mac and using brew to install postgres this will take a bit long. To start, you can install the database like so:
 
@@ -71,8 +71,8 @@ Once this process has completed, you will see some output that indicates that yo
 
 ```bash
 psql: could not connect to server: No such file or directory
-	Is the server running locally and accepting
-	connections on Unix domain socket "/tmp/.s.PGSQL.5432"?
+Is the server running locally and accepting
+connections on Unix domain socket "/tmp/.s.PGSQL.5432"?
 ```
 
 In our case, both are true: the database does not yet exist; hence it is also not running. So in order to create the database, we need to run this command:
@@ -95,7 +95,7 @@ So this is our penultimate step, run: `pg_ctl -D /usr/local/var/postgres -l logf
 psql: FATAL:  role "<your username>" does not exist
 ```
 
-Despite the error here, if we see this when we run the psql command, we are doing well. This error is just stating that there is no user created for our currently logged-in system user account. This is what we'll take care of in Step #3. 
+Despite the error here, if we see this when we run the `psql` command, we are doing well. This error is just stating that there is no user created for our currently logged-in system user account. This is what we'll take care of in Step #3.
 
 For now, what we need to do to finshing things off is to setup postgres to start every time we bootup our machine. To do this we need to do the following:
 
@@ -104,7 +104,7 @@ mkdir ~/Library/LaunchAgents    # This directory may already exist, in which cas
 cp /usr/local/Cellar/postgresql/9.5.3/homebrew.mxcl.postgresql.plist ~/Library/LaunchAgents/
 ```
 
-What the above does is place the process file that can start the Postgres process into a directory containing other such files that your Mac system will run on startup. To test that this is working, we should now restart our Mac system, log back in, and try the `psql` command again. If things are still working, we should see the error from above. 
+What the above does is place the process file that can start the Postgres process into a directory containing other such files that your Mac system will run on startup. To test that this is working, we should now restart our Mac system, log back in, and try the `psql` command again. If things are still working, we should see the error from above.
 
 Okay, almost there. Onward!
 
@@ -112,7 +112,7 @@ Okay, almost there. Onward!
 
 If we've reached this stage, we now have the Postgres database installed and running in the background. We've not yet sucesfully loaded the psql command line interface, but that's what we'll get working now.
 
-Our first step is to see if we can login login to the default user account -- `postgres`. To to this, we'll run the psql command again, only this time we'll specify the user:
+Our first step is to see if we can log into the default user account -- `postgres`. To do this, we'll run the `psql` command again, only this time we'll specify the user:
 
 ```
 psql -U postgres
@@ -127,9 +127,9 @@ Type "help" for help.
 postgres=#
 ```
 
-Just to start finding our way around here, let's try out a few commands. What if we want to look at all the databases that currently exist. The command for that is `\l`. Try that and you should see a list of tables. These are just default tables. We don't need to know what they are for at the moment.
+Just to start finding our way around here, let's try out a few commands. What if we want to look at all the databases that currently exist? The command for that is `\l`. Try that and you should see a list of tables. These are just default tables. We don't need to know what they are for at the moment.
 
-Now let's try examining which users are registerd on the database. In Postgres, user's are listed in a publicly visible "view" (again we don't need to know what a view is yet) that we can query using a simple SQL statement: `select * from pg_user`. This command simply asks to see all the columns and rows in the `pg_user` view. You should see output like this:
+Now let's try examining which users are registered on the database. In Postgres, user's are listed in a publicly visible "view" (again we don't need to know what a view is yet) that we can query using a simple SQL statement: `select * from pg_user`. This command simply asks to see all the columns and rows in the `pg_user` view. You should see output like this:
 
 ```bash
  usename  | usesysid | usecreatedb | usesuper | userepl | usebypassrls |  passwd  | valuntil | useconfig
@@ -138,11 +138,11 @@ Now let's try examining which users are registerd on the database. In Postgres, 
 (1 row)
 ```
 
-As you can see, at the moment there's only one user: `postgres`, and that's as it should be. But let's add another! There are a couple of way of doing this. We could, for example, use a SQL command something like `CREATE USER <username>` to create our user, but let's instead use some convenience commands that we can issue from our system shell instead.
+As you can see, at the moment there's only one user: `postgres`, and that's as it should be. But let's add another! There are a couple of way of doing this. We could, for example, use a SQL command like `CREATE USER <username>` to create our user, but let's instead use some convenience commands that we can issue from our system shell instead.
 
-To get back to the shell, let's quit the psql interface by typing `\q`. Once you are back at the command line, let's use the postgres user to create an additional user that will be the same as as your system user account. Since the `postgres` user is a superuser with broad privileges to create and add databases as well as new users, we can use this account to create the new user. 
+To get back to the shell, let's quit the psql interface by typing `\q`. Once you are back at the command line, let's use the postgres user to create an additional user that will be the same as your system user account. Since the `postgres` user is a superuser with broad privileges to create and add databases as well as new users, we can use this account to create the new user.
 
-To do this run the command `createuser -U postgres --interactive`. Once we run it, this command will ask us for the name of the "role" (i.e. user), and then ask if we want the user to be a "superuser". You should enter your main username, and say yes to the superuser option. 
+To do this run the command `createuser -U postgres --interactive`. Once we run it, this command will ask us for the name of the "role" (i.e. user), and then ask if we want the user to be a "superuser". You should enter your main username, and say yes to the superuser option.
 
 Once that is done, you'll need to issue one last command to create a user table for the new user. (In Postgres, each user has a database). To do that issue this follwing command: `createdb -U postgres <username>`.
 
@@ -151,15 +151,15 @@ Now, we should have created a new user with superuser privileges. This means tha
 Congrats! Your database is setup.
 
 ## Getting SQL Warmed UP
- 
-Now that we've configured our postgres database, let's do a litte playing around jsut to get oriented. We've included in this lesson directory an sql file filled with dummy data. Let's create a test database, import the data, and test out a query. To create our test database and import the data, do the following:
+
+Now that we've configured our postgres database, let's do a litte playing around just to get oriented. We've included in this lesson directory an sql file filled with dummy data. Let's create a test database, import the data, and test out a query. To create our test database and import the data, do the following:
 
 ```bash
 $ createdb test
 $ psql test < users.sql
 ```
 
-At this point, we should have a database `test` that contains a single table `users`. Let's start up the psql interface and examine our data. Begin, of course, by typing `psql`. Now, let's check that our database is there by typeing `\l` to list the databases. We should now see the `test` database included in our list. 
+At this point, we should have a database `test` that contains a single table `users`. Let's start up the psql interface and examine our data. Begin, of course, by typing `psql`. Now, let's check that our database is there by typeing `\l` to list the databases. We should now see the `test` database included in our list.
 
 Next, let's connect to the database, and look around. To connect to our database type `\connect test` and hit enter. Then, once, you've done that, type `\d` to get a list of the tables in the test database. We should see just one:
 
@@ -202,5 +202,5 @@ Paste the above sql statement into the psql interface and hit enter. And Wa-Lah,
 Now this kind of query is obviously pretty basic, but it should get us started. And already, perhaps, you can see how powerful this database is that we've setup. It will definitely serve us well!
 
 ## Resources
-* PostgreSQL documentation: https://www.postgresql.org/docs/ 
+* PostgreSQL documentation: https://www.postgresql.org/docs/
 * ["Understanding SQL And NoSQL Databases And Different Database Models"](https://www.digitalocean.com/community/tutorials/understanding-sql-and-nosql-databases-and-different-database-models)
