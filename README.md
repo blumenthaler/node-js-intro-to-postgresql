@@ -127,7 +127,9 @@ Type "help" for help.
 postgres=#
 ```
 
-Just to start finding our way around here, let's try out a few commands. What if we want to look at all the databases that currently exist? The command for that is `\l`. Try that and you should see a list of tables. These are just default tables. We don't need to know what they are for at the moment.
+> Note: The version number that you see at the top of the initial prompt could differ. You might see 9.5.1, for example. These differences should be okay..
+
+Just to start finding our way around here, let's try out a few commands. What if we want to look at all the databases that currently exist. The command for that is `\l`. Try that and you should see a list of tables. These are just default tables. We don't need to know what they are for at the moment.
 
 Now let's try examining which users are registered on the database. In Postgres, user's are listed in a publicly visible "view" (again we don't need to know what a view is yet) that we can query using a simple SQL statement: `select * from pg_user`. This command simply asks to see all the columns and rows in the `pg_user` view. You should see output like this:
 
