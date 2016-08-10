@@ -37,7 +37,7 @@ The fact that SQLite is just a file makes it an insanely lightweight and fast so
 
 Now that we have an idea about the characteristics of Postgres, let's get it installed. Yes it needs to be installed! Here, of course, we encounter one of the limitations of Postgres compared to SQLite. It's definitely a bit more of an involved process to get it going on our systems.  Nonetheless, we can do it!
 
-One of the reason that installing Postgres can be complex is that it depends on your environment. Setup and configuration, in general, is often frustrating because of the idiosyncacies of each environment. But we'll go through some methods here that should be pretty full proof.
+One of the reason that installing Postgres can be complex is that it depends on your environment. Setup and configuration, in general, is often frustrating because of the idiosyncacies of each environment. But we'll go through some methods here that should be pretty foolproof.
 
 Before we get started, though, we need to understand the overall process here since each of the installation procedures is aiming at the same goal. In order to complete our installation, we need to achieve the following:
 
@@ -206,3 +206,5 @@ Now this kind of query is obviously pretty basic, but it should get us started. 
 ## Resources
 * PostgreSQL documentation: https://www.postgresql.org/docs/
 * ["Understanding SQL And NoSQL Databases And Different Database Models"](https://www.digitalocean.com/community/tutorials/understanding-sql-and-nosql-databases-and-different-database-models)
+
+<p class='util--hide'>View <a href='https://learn.co/lessons/node-js-intro-to-postgresql'>Intro To PostgreSQL</a> on Learn.co and start learning to code for free.</p>
