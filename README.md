@@ -27,7 +27,7 @@ So where does Postgres fit here? Well, Postgres is absolutely an example of a re
 
 ## How Does PostgreSQL Compare to SQLite?
 
-That then is how we'd define PostgreSQL on the global level among the whole universe of database solutions. But how does it compare with the SQLite? Here the comparison is a bit more detailed. Both are relational databases, and both follow the SQL standard, and that makes designing data structures within them and querything them a similar sort of experience, but beyond that a number of significant differences exist.
+That then is how we'd define PostgreSQL on the global level among the whole universe of database solutions. But how does it compare with the SQLite? Here the comparison is a bit more detailed. Both are relational databases, and both follow the SQL standard, and that makes designing data structures within them and querying them a similar sort of experience, but beyond that a number of significant differences exist.
 
 Probably the most striking difference between them, is that SQLite is a file-based database. When you query SQLite, it manipulates and fetches data by making direct calls to a file holding the data. That file, essentially, *is* the SQLite database. Postgres works very differently: it fetches data through an interface of ports and sockets that connect to a database server that must be installed in the environment in which the application is running.
 
